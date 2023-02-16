@@ -1,0 +1,131 @@
+/*Start Global*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	height: 1000px;
+}
+.container{
+	width: 1200px;
+	height: 100%;
+	margin: auto;
+}
+.clearfix{
+	clear: both;
+}
+/*End Global*/
+/*Start Nabar*/
+nav{
+	height: 50px;
+	width: 100%;
+	padding: 10px 0;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 4;
+}
+nav .brand{
+	float: left;
+	width: 30%;
+	text-transform: uppercase;
+	height: 100%;
+}
+nav .brand h2{
+	padding-top: 5px;
+	color: #fff;
+}
+nav .brand h2 span{
+	color: #55efc4;
+}
+nav .links{
+	float: right;
+	width: 60%;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav .links li{
+	padding: 10px 20px;
+	text-transform: uppercase;
+	text-align: center;
+}
+nav .links li a{
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: .6px;
+	transition: all .2s ease;
+}
+nav .links li a.active,
+nav .links li a:hover{
+	color: #55efc4;
+	border-bottom: 2px solid #55efc4;
+}
+/*End Nabar*/
+/*Start Header*/
+header{
+	background-image: url('../images/header.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+header .overlay{
+	width: 90%;
+	text-align: center;
+	position: absolute;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 2;
+}
+header .overlay h2{
+	color: #fff;
+	font-size: 2.2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 1.2px;
+}
+header .overlay p{
+	color: #fff;
+	font-size: 1.1rem;
+	line-height: 1.3;
+	width: 50%;
+	margin:17px auto;
+}
+header .overlay i{
+	color: #fff;
+	font-size: 1.3rem;
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 35px;
+	transition: all .4s ease;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+header .overlay i:hover{
+	background: #55EFC4;
+}
+header .overlay i.fa-angle-left{
+	left: 0;
+}
+header .overlay i.fa-angle-right{
+	right: 0;
+}
+header:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+}
+/*End Header*/

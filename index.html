@@ -1,143 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Template</title>
 </head>
+
 <body>
-<nav>
-	<div class="container">
-		<div class="brand">
-			<h2>Anas <span>Bidah</span></h2>
+	<nav>
+		<div class="container row">
+			<div class="brand">
+				<h2>Anas <span>Bidah</span></h2>
+			</div>
+			<ul class="links">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Testomonials</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
 		</div>
-		<ul class="links">
-			<li><a href="#" class="active">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Portfolio</a></li>
-			<li><a href="#">Testomonials</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</div>
-	<div class="clearfix"></div>
-</nav>
-<header>
-	<!-- Start Navbar -->
-	<!-- End Navbar -->
+	</nav>
+	<header>
+		<div class="foot">
+			<div class="container">
+				<div class="row">
+					<div class="box">
+						<i class="fas fa-book"></i>
+						<div class="info">
+							<h4>30M+</h4>
+							<p>book donated</p>
+						</div>
+					</div>
+					<div class="box">
+						<i class="fas fa-building"></i>
+						<div class="info">
+							<h4>$25M+</h4>
+							<p>funds raised</p>
+						</div>
+					</div>
+					<div class="box">
+						<i class="fas fa-recycle"></i>
+						<div class="info">
+							<h4>90M+</h4>
+							<p>books reused</p>
+						</div>
+					</div>
+					<div class="box">
+						<i class="fas fa-user"></i>
+						<div class="info">
+							<h4>70M+</h4>
+							<p>customers served</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-</header>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-	let overlays = [
-		{
-			title:'Welcomme evryone1',
-			text:'some text 1'
-		},
-		{
-			title:'Welcomme evryone2',
-			text:'some text 2'
-		},
-		{
-			title:'Welcomme evryone3',
-			text:'some text 3'
-		},
-		{
-			title:'Welcomme evryone4',
-			text:'some text 4'
-		}
-	]
-	$(function(){
-		'use strict';
-		$('header').height($(window).height());
-		$(window).resize(function(){
-			$('header').height($(window).height());
-		})
-		//Links add active
-		$('.links li a').click(function(){
-			for(let i=0;i<$('.links li a').length;i++){
-				$('.links li a')[i].classList.remove('active');
-			}
-			$(this).addClass('active');
-		})
-		//Menu when scroll
-		$(window).scroll(function(){
-			var menu = $('nav');
-			if($(this).scrollTop() > menu.height()){
-				menu.css({"background":"#2f3542"});
-			}else{
-				menu.css({"background":"transparent"});
-			}
-		})
-	});
-	overlays.forEach(element => {
-		const ele = document.createElement("div");
-		ele.classList.add('overlay');
-		const titleO = document.createElement("h2");
-		titleO.innerHTML = element.title;
-		ele.appendChild(titleO);
-		const textO = document.createElement("p");
-		textO.innerHTML = element.text;
-		ele.appendChild(textO);
-		const leftIcon = document.createElement("i");
-		leftIcon.classList.add("fas");
-		leftIcon.classList.add('fa-angle-left');
-		const rightIcon = document.createElement("i");
-		rightIcon.classList.add("fas");
-		rightIcon.classList.add('fa-angle-right');
-		ele.appendChild(leftIcon);
-		ele.appendChild(rightIcon);
-		// ele.innerHTML += '<p>'+element.text+'</p>';
-		// ele.innerText += '<i class="fas fa-angle-left" style="color: #fff;left: 0;"></i>';
-		// ele.innerText += '<i class="fas fa-angle-right" style="color: #fff;left:calc(100% - 40px);"></i>';
-		
-		document.querySelector('header').appendChild(ele);
-		my_overlays = document.querySelectorAll('.overlay');
-		for(let i=0;i<my_overlays.length;i++){
-			my_overlays[i].style.display = "none";
-		}
-	});
-	var indexOvrl = 0;
-	my_overlays[indexOvrl].style.display = 'block';
-		$('.overlay .fa-angle-left').click(function(){
-			if (indexOvrl == 0) {
-				for(let i=0;i<my_overlays.length;i++){
-					my_overlays[i].style.display = "none";
-				}
-				indexOvrl = my_overlays.length-1;
-				my_overlays[indexOvrl].style.display = 'block';
-			}else if(indexOvrl > my_overlays.length){
-				for(let i=0;i<my_overlays.length;i++){
-					my_overlays[i].style.display = "none";
-				}
-				indexOvrl = 0;
-				my_overlays[indexOvrl].style.display = 'block';
-			}else{
-				for(let i=0;i<my_overlays.length;i++){
-					my_overlays[i].style.display = "none";
-				}
-				indexOvrl-=1;
-				my_overlays[indexOvrl].style.display = 'block';
-			}
-		})
-		// Right
-		$('.overlay .fa-angle-right').click(function(){
-			if (indexOvrl == my_overlays.length-1) {
-				for(let i=0;i<my_overlays.length;i++){
-					my_overlays[i].style.display = "none";
-				}
-				indexOvrl = 0;
-				my_overlays[indexOvrl].style.display = 'block';
-			}else{
-				for(let i=0;i<my_overlays.length;i++){
-					my_overlays[i].style.display = "none";
-				}
-				indexOvrl+=1;
-				my_overlays[indexOvrl].style.display = 'block';
-			}
-		})
-</script>
 </body>
+
 </html>

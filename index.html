@@ -12,17 +12,17 @@
 </head>
 
 <body>
-	<nav class="active">
+	<nav>
 		<div class="container row">
 			<div class="brand">
 				<h2>Anas <span>Bidah</span></h2>
 			</div>
 			<ul class="links">
-				<li><a href="#" class="active">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Testomonials</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#" class="active" data-name="home"><span>Home</span><i class="fas fa-house"></i></a></li>
+				<li><a href="#" data-name="about"><span>About</span><i class="fas fa-user"></i></a></li>
+				<li><a href="#" data-name="books"><span>books</span><i class="fa-solid fa-book"></i></a></li>
+				<li><a href="#" data-name="blogs"><span>blogs</span><i class="fas fa-table-cells"></i></a></li>
+				<li><a href="#" data-name="contact"><span>Contact</span><i class="fa-solid fa-headset"></i></a></li>
 			</ul>
 			<div class="row icons">
 				<div class="cart_link">
@@ -71,9 +71,38 @@
 	<header>
 		<div class="content">
 			<div class="container">
-				<h5>we have Top Offers for anyone</h5>
-				<h1>Discover Stories That Inspire, Educate, and Entertain</h1>
-				<a href="#" class="btn"><span>store</span></a>
+
+				<div class="infos">
+					<div class="search_box">
+						<div class="box">
+							<div class="select_box">
+								<div class="main_item">
+									<p class="title">CATEGORIES</p>
+									<i class="fas fa-chevron-down"></i>
+								</div>
+								<div class="menu">
+									<div class="item">
+										<p>Cat 1</p>
+									</div>
+									<div class="item">
+										<p>caption 2</p>
+									</div>
+									<div class="item">
+										<p>caption categories and 3</p>
+									</div>
+								</div>
+							</div>
+							<input type="text" placeholder="Search By Title, Author, Publisher Or ISBN...">
+							<i class="fas fa-search"></i>
+						</div>
+					</div>
+					<h5>we have Top Offers for anyone</h5>
+					<h1>Discover Stories That Inspire, Educate, and Entertain</h1>
+				</div>
+				<div class="btns">
+					<a href="#" class="btn big_btn"><span>get started</span></a>
+					<a href="#" class="btn"><span>store</span></a>
+				</div>
 			</div>
 		</div>
 		<div class="foot">
@@ -111,7 +140,10 @@
 			</div>
 		</div>
 	</header>
-
+	<!--  -->
+	<section>
+		<h1>lolo</h1>
+	</section>
 	<script src="js/script.js"></script>
 
 </body>

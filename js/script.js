@@ -1,13 +1,28 @@
 // ----------------- NAV MENU ---------------------
 let nav_menu = document.querySelector('nav');
-
-// 1 - dynamically add and remove the active class based on the user's scroll position.
+let button_go_to_top = document.querySelector('#btn_top_to_page');
+// 1 - Event When Scrolling Up
 document.addEventListener('scroll',function(e) {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if(scrollTop > 220){
+    // ----> Dynamically add and remove the active class based on the user's scroll position.
+    if(scrollTop > 100){
         nav_menu.classList.add('active');
     }else{
         nav_menu.classList.remove('active');
+    }
+    
+    // ----> Achieve a responsive line on top of the navbar whose width changes when scrolling
+    const pageHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / pageHeight) * 100; 
+    // Set the line's width based on scroll percentage
+    nav_menu.querySelector('.container').style.setProperty('--after-nav-line', scrollPercent + '%');
+
+    // ----> Show the button go_to_top when scrolling beyond the viewport height
+    
+    if(scrollTop > window.innerHeight){
+        button_go_to_top.classList.add('show');
+    }else{
+        button_go_to_top.classList.remove('show');
     }
 });
 
@@ -46,6 +61,16 @@ if(cart_icon && wish_icon && list_cart){
     });
 }
 
+// ----------- GLOBALS -----------
+// ----->  Appears after scrolling and, when clicked, scrolls back to the top.
+if(button_go_to_top){
+    button_go_to_top.addEventListener('click',function(e){
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 
 

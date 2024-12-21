@@ -5,13 +5,14 @@
 :root {
 	--main-color: #13ca96  ;
 	--second-color : #FF6F61 ;
-	--golden : #FFD966 ;
+	--golden : rgb(233, 198, 0);
 	--white: #f9f9f9;
 	--second-white:rgb(240, 240, 240);
 	--black: #2d2d2d;
 	--dark-gray: #343A40;
 	--medium-gray: #6C757D;
 	--third-gray: #a7a7a7;
+  --red: #E64E48;
   --after-nav-line: 0;
 	--transition : all .3s ease-in-out;
   --box-interior : rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -164,6 +165,9 @@ a {
   word-spacing: 1px;
   position: relative;
   padding-left: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .title::after{
   font-family: 'Font Awesome 5 Free';
@@ -175,6 +179,72 @@ a {
   font-size: 18px;
   font-weight: bold;
 }
+.title a{
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: .4px;
+  text-decoration: underline;
+  transition: var(--transition);
+}
+.title a:hover{
+  color: var(--dark-gray);
+}
+/* Optional: Style the Slick arrows */
+.slick-prev, .slick-next {
+  font-size: 24px;
+  color: #13ca96;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* Optional: Style the pagination dots */
+.slick-dots li button:before {
+  color: #13ca96;
+  font-size: 14px;
+}
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next{
+  color: transparent;
+  background: transparent;
+}
+.slick-arrow.slick-prev{left: -45px;z-index: 2;}
+.slick-arrow.slick-next{right: -45px;z-index: 2;}
+.slick-arrow.slick-prev::before,
+.slick-arrow.slick-next::before{
+  font-family: 'Font Awesome 5 Free';
+  content: '\f053';
+  font-weight: bold;
+  font-size: 22px;
+  color: var(--main-color);
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--main-color);
+  transition: var(--transition);
+}
+.slick-arrow.slick-next::before{content: '\f054';}
+.slick-arrow.slick-prev:hover::before,
+.slick-arrow.slick-next:hover::before{
+  background-color: var(--main-color);
+  color: var(--white);
+
+}
+.slick-dots li{
+  width: 0px!important;
+  margin: 0 7px!important;
+}
+.slick-dots li.slick-active button::before{
+  font-size: 10px;
+  color: var(--main-color)!important;
+}
+
 /*End Global*/
 
 /*  START NAVBAR*/
@@ -616,7 +686,7 @@ header .foot .box p {
 /*  START SECTION ABOUT */
 section.about{
   padding-top: var(--padding-section);
-  padding-bottom: var(--padding-section);
+  /* padding-bottom: var(--padding-section); */
 }
 section.about h1{
   text-align: center;
@@ -648,19 +718,23 @@ section.about .big_btn{
 /*  END SECTION ABOUT */
 /*  START SECTION BEST-SELLER OF THE YEAR */
 section.best_seller_section{
-  padding-bottom: var(--padding-section);
+  padding-top: var(--padding-section);
+  /* padding-bottom: var(--padding-section); */
 }
 section.best_seller_section .boxes_products{
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
-  gap: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: var(--padding-section);
+  padding-bottom: 15px;
 }
 section.best_seller_section .boxes_products .box{
+  width: 100%;
   height: 350px;
   background: var(--linear-main-color);
   background: rgb(162, 255, 229, .4);
-  border-radius: 15px;
+  border-radius: 10px;
+  margin-right: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   cursor: pointer;
   transition: var(--transition);
@@ -669,36 +743,72 @@ section.best_seller_section .boxes_products .box:hover{
   background: var(--linear-main-color);
 }
 section.best_seller_section .boxes_products .image{
-  height: 70%;
+  height: 75%;
   display: grid;
   place-items: center;
+  position: relative;
+  perspective: 400px;
 }
 section.best_seller_section img{
   width: 170px;
   height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 2px;
+  transition: var(--transition);
   /* border: 3px solid var(--dark-gray); */
+}
+section.best_seller_section .boxes_products .box:hover img{transform: scale(1.1);}
+ section.best_seller_section .boxes_products .image .btns{
+  position: absolute;
+  width: 90%;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-between;
  }
+ section.best_seller_section .boxes_products .image .btns .btn{
+  height: 37px;
+  width: 37px;
+  padding: 0;
+  border-width: 0px;
+  padding-top: 1px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: none;
+  color: var(--white);
+
+}
+section.best_seller_section .boxes_products .image .btns .btn.add_wishlist{
+  background-color: var(--red);
+}
+section.best_seller_section .boxes_products .image .btns .btn.add_cart{
+  background-color: var(--golden);
+  color: var(--dark-gray);
+}
 section.best_seller_section .boxes_products .info{
   background-color: var(--second-white);
-  height: 30%;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  height: 35%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   border-top: 3px solid var(--main-color);
-  padding: 5px 20px;
+  padding: 4px 10px;
 }
 section.best_seller_section .boxes_products .info .head{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 section.best_seller_section .boxes_products .info .head h3{
   flex-basis: 85%;
-  font-size: 20px;
+  font-size: 17px;
   color: var(--dark-gray);
-  font-weight: 800;
-  letter-spacing: .3px;
+  font-weight: 700;
+  letter-spacing: .2px;
   overflow: hidden;
+  text-wrap: nowrap;
   transition: var(--transition);
 }
 section.best_seller_section .boxes_products .box:hover h3{
@@ -719,15 +829,14 @@ section.best_seller_section .boxes_products .info .foot{
 section.best_seller_section .boxes_products .info .foot .item{
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 section.best_seller_section .boxes_products .info .foot .item i{
-  font-size: 22px;
+  font-size: 16px;
   color: var(--medium-gray);
-  
 }
 section.best_seller_section .boxes_products .info .foot .item span{
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--medium-gray);
 }
@@ -735,7 +844,256 @@ section.best_seller_section .boxes_products .info .foot .item span{
 
 
 
+/*  START SECTION POPULAR CATEGORIES IN BOOKS */
+section.popular_categories{
+  padding-top: var(--padding-section);
+  /* padding-bottom: var(--padding-section); */
+}
+section.popular_categories .container .boxes{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  row-gap: 30px;
+  margin-top: var(--padding-section);
+}
+section.popular_categories .container .boxes .box{
+  position: relative;
+  height: 200px;
+}
+section.popular_categories .container .boxes .box .image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--linear-main-color);
+  border-radius: 50%;
+  border: 4px solid var(--medium-gray);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+section.popular_categories .container .boxes .box .image::after{
+  content: attr(data-title);
+  position: absolute;
+  left: 50%;top: -40px;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 0;
+  background-color: var(--main-color);
+  color: var(--white);
+  border-radius: 3px;
+  text-wrap: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  text-transform: capitalize;
+  padding: 5px;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: var(--transition);
+}
+section.popular_categories .container .boxes .box:hover .image::after{width: 200px;opacity: 1;}
+section.popular_categories .container .boxes .box .image::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100%);
+  height: calc(100%);
+  background: var(--linear-gray-color);
+  opacity: 0;
+  border-radius: 50%;
+  z-index: 3;
+  transition: var(--transition);
+  cursor: pointer;
+}
+section.popular_categories .container .boxes .box:hover .image::before{opacity: .3;}
+section.popular_categories .container .boxes .box .image img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
 
+section.popular_categories .container .boxes .box .info{
+  position: absolute;
+  left: 50%;
+  bottom: -35px;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 0;
+  background-color: var(--main-color);
+  color: var(--white);
+  border-radius: 3px;
+  text-wrap: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: var(--transition);
+}
+section.popular_categories .container .boxes .box:hover .info{
+  width: 100%;opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+section.popular_categories .container .boxes .box:hover .info span{
+}
+section.popular_categories .container .boxes .box:hover .info span i{
+  margin-right: 5px;
+  font-size: 15px;
+}
+/*  END SECTION POPULAR CATEGORIES IN BOOKS */
+/* START SECTION LATEST BOOK REVIEWS */
+
+section.latest_book_reviews{
+  padding-top: var(--padding-section);
+  padding-bottom: var(--padding-section);
+}
+section.latest_book_reviews .container .boxes{
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  row-gap: 30px; */
+  margin-top: var(--padding-section);
+  display: block;
+}
+
+section.latest_book_reviews .container .boxes .box{
+  position: relative;
+  height: 380px;
+  margin-right: 25px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+section.latest_book_reviews .container .boxes .box .head{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100px;
+  background: var(--second-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  padding: 0 30px 0 0;
+}
+section.latest_book_reviews .container .boxes .box .head h2{
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 5px;
+  color: var(--black);
+  position: relative;
+}
+section.latest_book_reviews .container .boxes .box .head h2::before,
+section.latest_book_reviews .container .boxes .box .head h2::after{
+  font-family: 'Font Awesome 5 Free';
+  content: "\f10d";
+  position: absolute;
+  top: 0;
+  left: -13px;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--black);
+  transition: var(--transition);
+}
+section.latest_book_reviews .container .boxes .box .head h2::after{
+  content: '\f10e';
+  right: -13px;
+  top: 3px;
+  left: auto;
+}
+section.latest_book_reviews .container .boxes .box .head p{
+    color: var(--medium-gray);
+    font-size: 15px;
+    letter-spacing: .3px;
+}
+section.latest_book_reviews .container .boxes .box .body{
+  position: absolute;
+  top: 100px;
+  height: calc(100% - 200px);
+  display: flex;
+  align-items:center;
+  z-index: 100;
+  padding: 0 25px;
+  overflow: hidden;
+}
+section.latest_book_reviews .container .boxes .box .body p{
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--medium-gray);
+}
+section.latest_book_reviews .container .boxes .box .foot{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  background: var(--second-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+section.latest_book_reviews .container .boxes .box .foot .image{
+  position: relative;
+  border-radius: 50%;
+}
+section.latest_book_reviews .container .boxes .box .foot .image::after{
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: green;
+  border: 3px solid var(--second-white);
+}
+section.latest_book_reviews .container .boxes .box .foot .image img{
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+section.latest_book_reviews .container .boxes .box .foot .rating h4{
+  font-size: 17px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 5px;
+}
+section.latest_book_reviews .container .boxes .box .foot .rating .rat{
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+section.latest_book_reviews .container .boxes .box .foot .rating .rat .stars i{
+  font-size: 13px;
+  color: var(--golden);
+}
+section.latest_book_reviews .container .boxes .box .foot .rating .rat span{
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--medium-gray);
+}
+/* END SECTION LATEST BOOK REVIEWS */
 
 
 

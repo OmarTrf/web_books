@@ -92,3 +92,70 @@ search_boxes.forEach(search_box=>{
         });
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+$('.best_seller_section .boxes_products').slick({
+    slidesToShow: 4,         // Show 3 slides at once
+    slidesToScroll: 1,       // Scroll 1 slide at a time
+    autoplay: false,          // Enable autoplay
+    autoplaySpeed: 3000,     // Slide change every 3 seconds
+    arrows: true,            // Show next/prev arrows
+    dots: true,              // Show pagination dots
+    responsive: [
+      {
+        breakpoint: 1024,    // Tablet size
+        settings: {
+          slidesToShow: 3,   // Show 2 slides at a time
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 981,     // Mobile size
+        settings: {
+          slidesToShow: 2,   // Show 1 slide at a time
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,     // Mobile size
+        settings: {
+          slidesToShow: 1,   // Show 1 slide at a time
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.latest_book_reviews .boxes').slick({
+    slidesToShow: 3,         // Show 3 slides at once
+    slidesToScroll: 1,       // Scroll 1 slide at a time
+    autoplay: false,          // Enable autoplay
+    autoplaySpeed: 3000,     // Slide change every 3 seconds
+    arrows: true,            // Show next/prev arrows
+    // dots: true,              // Show pagination dots
+    responsive: [
+      {
+        breakpoint: 1024,    // Tablet size
+        settings: {
+          slidesToShow: 2,   // Show 2 slides at a time
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,     // Mobile size
+        settings: {
+          slidesToShow: 1,   // Show 1 slide at a time
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });

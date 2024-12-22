@@ -1,3 +1,90 @@
+// ----------------- SLIDER ----------------------
+$('.best_seller_section .boxes_products').slick({
+  slidesToShow: 4,         // Show 3 slides at once
+  slidesToScroll: 1,       // Scroll 1 slide at a time
+  autoplay: false,          // Enable autoplay
+  autoplaySpeed: 3000,     // Slide change every 3 seconds
+  arrows: true,            // Show next/prev arrows
+  dots: true,              // Show pagination dots
+  responsive: [
+    {
+      breakpoint: 1024,    // Tablet size
+      settings: {
+        slidesToShow: 3,   // Show 2 slides at a time
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 981,     // Mobile size
+      settings: {
+        slidesToShow: 2,   // Show 1 slide at a time
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 768,     // Mobile size
+      settings: {
+        slidesToShow: 1,   // Show 1 slide at a time
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+$('.latest_book_reviews .boxes').slick({
+slidesToShow: 3,         // Show 3 slides at once
+slidesToScroll: 1,       // Scroll 1 slide at a time
+autoplay: false,          // Enable autoplay
+autoplaySpeed: 3000,     // Slide change every 3 seconds
+arrows: true,            // Show next/prev arrows
+// dots: true,              // Show pagination dots
+responsive: [
+  {
+    breakpoint: 1024,    // Tablet size
+    settings: {
+      slidesToShow: 2,   // Show 2 slides at a time
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 768,     // Mobile size
+    settings: {
+      slidesToShow: 1,   // Show 1 slide at a time
+      slidesToScroll: 1
+    }
+  }
+]
+});
+$('section.blogs .boxes').slick({
+slidesToShow: 6,         // Show 3 slides at once
+slidesToScroll: 1,       // Scroll 1 slide at a time
+autoplay: false,          // Enable autoplay
+autoplaySpeed: 3000,     // Slide change every 3 seconds
+arrows: true,            // Show next/prev arrows
+// dots: true,              // Show pagination dots
+responsive: [
+  {
+    breakpoint: 1024,    // Tablet size
+    settings: {
+      slidesToShow: 3,   // Show 2 slides at a time
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 768,     // Mobile size
+    settings: {
+      slidesToShow: 2,   // Show 1 slide at a time
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 568,     // Mobile size
+    settings: {
+      slidesToShow: 1,   // Show 1 slide at a time
+      slidesToScroll: 1
+    }
+  }
+]
+});
 // ----------------- NAV MENU ---------------------
 let nav_menu = document.querySelector('nav');
 let button_go_to_top = document.querySelector('#btn_top_to_page');
@@ -97,65 +184,31 @@ search_boxes.forEach(search_box=>{
 
 
 
-
-
-
-
-
-
-
-$('.best_seller_section .boxes_products').slick({
-    slidesToShow: 4,         // Show 3 slides at once
-    slidesToScroll: 1,       // Scroll 1 slide at a time
-    autoplay: false,          // Enable autoplay
-    autoplaySpeed: 3000,     // Slide change every 3 seconds
-    arrows: true,            // Show next/prev arrows
-    dots: true,              // Show pagination dots
-    responsive: [
-      {
-        breakpoint: 1024,    // Tablet size
-        settings: {
-          slidesToShow: 3,   // Show 2 slides at a time
-          slidesToScroll: 1
+// ========= FREQUENTLY ASKED QUESTIONS SECTION ==========
+let frequently_asked_questions_section = document.querySelector('section.frequently_asked_questions');
+if (frequently_asked_questions_section) {
+  let items = frequently_asked_questions_section.querySelectorAll('.items .item');
+  items.forEach(item => {
+    item.querySelector('.title_box').addEventListener('click', function (e) {
+      e.preventDefault();
+      // Close all other items first
+      items.forEach(test_item => {
+        if (test_item !== item) {
+          test_item.querySelector('.info').classList.remove('active');
         }
-      },
-      {
-        breakpoint: 981,     // Mobile size
-        settings: {
-          slidesToShow: 2,   // Show 1 slide at a time
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 768,     // Mobile size
-        settings: {
-          slidesToShow: 1,   // Show 1 slide at a time
-          slidesToScroll: 1
-        }
-      }
-    ]
+      });
+      // Toggle the clicked item's answer
+      let answer = item.querySelector('.info');
+      answer.classList.toggle('active');
+    });
   });
-  $('.latest_book_reviews .boxes').slick({
-    slidesToShow: 3,         // Show 3 slides at once
-    slidesToScroll: 1,       // Scroll 1 slide at a time
-    autoplay: false,          // Enable autoplay
-    autoplaySpeed: 3000,     // Slide change every 3 seconds
-    arrows: true,            // Show next/prev arrows
-    // dots: true,              // Show pagination dots
-    responsive: [
-      {
-        breakpoint: 1024,    // Tablet size
-        settings: {
-          slidesToShow: 2,   // Show 2 slides at a time
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 768,     // Mobile size
-        settings: {
-          slidesToShow: 1,   // Show 1 slide at a time
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
+}
+
+
+
+
+
+
+
+
+

@@ -34,6 +34,7 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 15px;
+  /* overflow: hidden; */
 }
 @media (min-width: 768px) {
   .container {
@@ -154,7 +155,7 @@ a {
   100%{transform: scale(1);opacity: 1;}
 }
 #btn_top_to_page.show:hover{
-  background-color: transparent;
+  background-color: var(--white);
   color: var(--main-color);
 }
 
@@ -256,10 +257,13 @@ nav {
   padding: 10px 0;
   position: fixed;
   left: 50%;
+  top: 0;
   padding: 0;
   transform: translateX(-50%);
   z-index: 4;
 }
+nav.black{background-color: var(--black);}
+nav.black{background-color: var(--black);}
 nav.active .container{
   position: relative;
   padding-top: 7px;
@@ -972,12 +976,7 @@ section.latest_book_reviews .container .boxes .box{
   height: 380px;
   margin-right: 25px;
   margin-top: 15px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   overflow: visible;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 section.latest_book_reviews .container .boxes .box .head{
   position: absolute;
@@ -991,6 +990,8 @@ section.latest_book_reviews .container .boxes .box .head{
   justify-content: center;
   align-items: end;
   padding: 0 30px 0 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 section.latest_book_reviews .container .boxes .box .head::before{
   font-family: 'Font Awesome 5 Free';
@@ -1042,6 +1043,9 @@ section.latest_book_reviews .container .boxes .box .body{
   align-items:center;
   z-index: 100;
   padding: 0 25px;
+  background: #f7f7f7;
+  /* border-left: 1px solid #dfdfdf;
+  border-right: 1px solid var(--third-gray); */
   overflow: hidden;
 }
 section.latest_book_reviews .container .boxes .box .body p{
@@ -1060,6 +1064,8 @@ section.latest_book_reviews .container .boxes .box .foot{
   justify-content: space-between;
   align-items: center;
   padding: 0 25px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 section.latest_book_reviews .container .boxes .box .foot .image{
   position: relative;
@@ -1455,6 +1461,7 @@ section.shop_by_categories .boxes .box  .info .links a::before{
 section.shop_by_categories .boxes .box  .info .links a:hover{color: var(--main-color);}
 section.shop_by_categories .boxes .box  .info .links a:hover::before{color: var(--main-color);}
 /* END SHOP BY CATEGORIES */
+
 /* START FOR THE LOVE READING */
 .for_the_love_reading{
   padding-top: var(--padding-section);
@@ -1498,6 +1505,128 @@ section.shop_by_categories .boxes .box  .info .links a:hover::before{color: var(
 .for_the_love_reading .boxes .box .video iframe{width: 100%;height: 100%;}
 /* END FOR THE LOVE READING */
 
+/* START FOOTER */
+footer{
+  padding-top: var(--padding-section);
+  padding-bottom: var(--padding-section);
+  margin-top: var(--padding-section);
+  background-color: var(--main-color);
+}
+footer.container{
+
+}
+footer .boxes{
+  display: flex;
+}
+footer .boxes .box.links{
+  flex-basis: 65%;
+  padding-right: 25px;
+  border-right: 1px solid var(--medium-gray);
+}
+footer .boxes .box.contact{
+  flex-basis: 35%;
+  padding-left: 25px;
+}
+footer .boxes .box.links .items{
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+footer .boxes .box.links .items .item{}
+footer .boxes .box h3{
+  font-size: 22px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--white);
+}
+footer .boxes .box h3:not(:first-of-type){margin-top: 25px;}
+footer .boxes .box.links .items .item ul{list-style: none;margin-top: 15px;}
+footer .boxes .box.links .items .item ul li{margin-top: 10px;}
+footer .boxes .box.links .items .item ul li a{
+  font-size: 14px;
+  text-transform: capitalize;
+  color: var(--dark-gray);
+  transition: var(--transition);
+  /* font-weight: 300; */
+}
+footer .boxes .box.links .items .item ul li a:hover{color: var(--second-white);}
+footer .boxes .box.links > p{
+  font-size: 14px;
+  margin-top: 45px;
+  line-height: 1.5;
+  color: var(--dark-gray);
+}
+footer .boxes .box.contact .icons{
+  display: flex;
+  gap: 30px;
+  margin-top: 25px;
+}
+footer .boxes .box.contact .icons a i{
+  font-size: 25px;
+  color: var(--second-white);
+  transition: var(--transition);
+}
+footer .boxes .box.contact .icons a:hover i{color: var(--dark-gray);}
+footer .boxes .box.contact .addresses{margin-top: 25px;}
+footer .boxes .box.contact .addresses h3{margin-bottom: 25px;}
+footer .boxes .box.contact .addresses a{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: var(--dark-gray);
+  transition: var(--transition);
+}
+footer .boxes .box.contact .addresses a h5{
+  flex-basis: 30%;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+footer .boxes .box.contact .addresses a span{
+  flex-basis: 70%;
+  text-align: right;
+  font-size: 14px;
+}
+footer .boxes .box.contact .addresses a:hover{color: var(--second-white);}
+footer .boxes .box.contact .field{
+  margin-top: 25px;
+  position: relative;
+  height: 35px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+footer .boxes .box.contact .field input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 10px;
+  color: var(--dark-gray);
+  font-weight: 500;
+  opacity: .7;
+  z-index: 1;
+}
+footer .boxes .box.contact .field button{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 90px;
+  z-index: 2;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .5px;
+  background-color: var(--dark-gray);
+  color: var(--second-white);
+  transition: var(--transition);
+}
+footer .boxes .box.contact .field button:hover{background-color: var(--medium-gray);}
+/* END FOOTER */
+
 
 
 
@@ -1530,7 +1659,7 @@ section.shop_by_categories .boxes .box  .info .links a:hover::before{color: var(
   padding: 5px;
   color: var(--medium-gray);
   border-right: 2px solid var(--medium-gray);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .7px;
